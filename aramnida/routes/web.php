@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RegistrationController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,20 +20,40 @@ Route::get('/', function () {
 //     });
 // });
 
+
+// Route::post('', function () {
+//     #logic here...
+// })->name('registration.store');
+
 Route::prefix('/admin')->name('admin.')->group(function (){
     Route::prefix('/users')->group(function (){
-        Route::get('/profile', function () {
-            return 'User profile';
-        })->name('profile');
 
-        Route::get('/information/fgfgfgfgfg/hhghghhg', function () {
-            return 'User Information';
-        })->name('information');
+        Route::get('/profile/{id}', [RegistrationController::class, 'show'])->name('profile');
+
+        Route::get('/information', RegistrationController::class)->name('information');
 
         Route::get('/dashboard', function() {
             return 'Admin Dashboard';
         })->name('dashboard');
     });
+
 });
 
-Route::redirect('/go-to-admin', '/admin/users/dashboard');
+// Route::get('/post', function (){
+//     return view('post');
+// });
+
+// Route::get('/user/{id?}', function($id=NULL){
+//     return "User ID: {$id}";
+// });
+
+
+// Route::view('/post', 'post');
+
+// Route::redirect('/admin', '/admin/users/dashboard');
+
+Route::get('/request', function(Request $request){
+    // dump();
+    dd($request->date('birthdate')->diffForHumans());
+});
+
