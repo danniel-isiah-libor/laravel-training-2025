@@ -48,6 +48,10 @@ Upon approval in the staging PR, then make the Production PR
 •	Auth-React-Recipe within different servers and auth,recipe has its own db
 •	Users db is in Auth service
 •	If running the services, run each services ex. npm run dev, etc.
+•	ionic docs
+•	javascript - import plugin of ionic capacitor
+•	ionic is for javascript framework
+•	
 
 
 
