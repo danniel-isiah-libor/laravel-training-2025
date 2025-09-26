@@ -62,6 +62,16 @@ filament - a new laravel framework
 filamentphp.com
 
 Laravel Telescope - for debugging use, to monitor your laravel project
+-for local use because it consumes high resources
+
+Laravel Pulse - just like telescope. 
+- a real-time application performance monitoring tool and dashboard for Laravel applications. It provides insights into your application's performance and usage, helping you track down bottlenecks, find active users, and more.
+
+Laravel Horizon
+-  a powerful tool designed for managing and monitoring queues in Laravel applications. It provides a real-time, user-friendly interface that allows developers to monitor the status of their queues, view detailed job information, and configure various settings related to their queues.
+
+Laravel MCP
+- provides a simple and elegant way for AI clients to interact with your Laravel application through the Model Context Protocol. It offers an expressive, fluent interface for defining servers, tools, resources, and prompts that enable AI-powered interactions with your application.
 
 •	
 •	
