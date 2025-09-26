@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/users')->name('users.')->group(function () {
@@ -24,13 +24,13 @@ Route::prefix('/admin')->name('admin.')->group(function () {
 
 Route::get('go-to-admin', function () {
     return redirect()->route('admin.dashboard');
-});
+})->name('go-to-admin');
 
 Route::get('/user/{id?}', function ($id = null) {
     return 'User ID:' . $id;
-});
+})->name('user.id');
 
 Route::get('/request', function (Request $request) {
     // dump();
     dd($request);
-});
+})->name('request');
