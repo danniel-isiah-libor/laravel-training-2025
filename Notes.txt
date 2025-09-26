@@ -55,7 +55,7 @@ Upon approval in the staging PR, then make the Production PR
 •	Naming conventions use the PascalCase, camellCase, snake_case, kebab-case
 •	in naming controllers, use PascalCase
 •	end always with the word "Controller" if its controller. ex. UserController, NameController, etc.
-•	
+•	Views - in Blade, always starts with @ and ends with @endOperation e.g. @if -- @endIf, etc.
 •	
 •	
 
