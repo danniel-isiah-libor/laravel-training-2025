@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +27,21 @@ Route::prefix('/admin')->name('admin.')->group(function () {
         // logic here...
         return redirect()->route('admin.dashboard');
     })->name('go-to-admin');
+
+    Route::get('/users/{id?}', function ($id) {
+        return 'User ID:'.$id;
+    });
+
+    Route::get('/request', function (Request $request) {
+        // dump();
+        dd($request->date('birthdate')->diffForHumans());
+
+    });
+
+    Route::get('/blog/{slug}', function ($slug) {
+        return 'Blog Post: '.$slug;
+    })->where('slug', '[A-Za-z0-9\-]+');    
+    
 
 });
 
