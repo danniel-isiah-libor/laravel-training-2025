@@ -1,4 +1,6 @@
 LARAVEL NOTES
+DAY 1: SEPTEMBER 26, 2025
+
 •	Route > Controller > Model (db) > View
 •	Model 1 is to 1 db
 •	Views/templates – tailwind
@@ -82,6 +84,10 @@ Laravel Passport
 •	php artisan about - to check the status/info of the project
 •	php artisan down --secret=password ex. --secret=waitlangmuna -to access just browse ex. 127.0.0.1/secret=password
 •	test - features test, unit test
+•	
+•	
+•	
+•	
 •	
 
 
