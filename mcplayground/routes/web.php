@@ -1,16 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'welcome']);
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::prefix('user')->group(function(){
-    Route::get('info', function(){
-        return response()->json("User");
-    });
+    Route::get('info', [UserController::class, 'info']);
 });
