@@ -95,6 +95,7 @@ SCRUM
     - Todo, Progress, Done
     - kanban - like scrum but no sprints, there's still todo, progress, done but no commits or ceremonies like the sprints of scrum
     - Scrum tools: JIRA (free/paid),Trello, Gitlab, etc.
-•	
+
+•	if subscribed to enterprise of github, utilize the branch rules to avoid or secure the .env file
 •	
 •	
