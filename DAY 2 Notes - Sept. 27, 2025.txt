@@ -15,4 +15,6 @@ Sept. 27, 2027
 * when it comes to the design, use tailwind css
 * Tailwind CSS - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 * make sure the indentations of the syntax are aligned
-* php artisan make:view
+* php artisan make:views
+* fluxui.dev -for frontend dev
+* 
