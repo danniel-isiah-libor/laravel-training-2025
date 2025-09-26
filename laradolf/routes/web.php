@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,9 +11,10 @@ Route::get('/', function () {
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/users')->name('users.')->group(function () {
-        Route::get('/profile', function () {
+        /* Route::get('/profile', function () {
             return 'User Profile';
-        })->name('profile');
+        })->name('profile');*/
+            Route::get('/profile/{id?}', [UserController::class, 'show'])->name('profile');
 
         Route::get('/users/information', function () {
         return 'User Information';
