@@ -26,7 +26,7 @@ Development (branch)
 
 Staging
 
-Cycle PR = Development > Staging > Production
+Cycle: PR = Development > Staging > Production
 
 Upon approval in the staging PR, then make the Production PR
 
@@ -43,11 +43,12 @@ Upon approval in the staging PR, then make the Production PR
 
 •	Auth(passport/sanctum)
 •	Recipe
-•	React – mobile/tablet/desktop/
+•	React – mobile/tablet/web/desktop/
 •	React-Auth-Token-React-Recipe-Auth-Recipe-React
 •	Auth-React-Recipe within different servers and auth,recipe has its own db
 •	Users db is in Auth service
-•	
+•	If running the services, run each services ex. npm run dev, etc.
+
 
 
 
