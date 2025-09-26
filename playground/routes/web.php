@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,13 +11,9 @@ Route::get('/', function () {
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/users')->group(function () {
-        Route::get('/profile', function () {
-            return 'User Profile';
-        })->name('profile');
+        Route::get('/profile', [UserController::class, 'show'])->name('profile');
 
-        Route::get('/information', function () {
-            return 'User Information';
-        })->name('information');
+        Route::get('/information', UserController::class)->name('information');
     });
 
     Route::get('/dashboard', function () {
@@ -29,3 +27,18 @@ Route::get('/go-to-admin', function () {
 });
 
 // Route::redirect('/go-to-admin', '/admin/dashboard');
+
+Route::get('/user/{id?}', function ($id = null) {
+    return "User ID: {$id}";
+});
+
+Route::get('/blog/{slug}', function ($slug = null) {
+    return "Blog Slug: {$slug}";
+});
+
+Route::get('/request', function (Request $request) {
+    // dump();
+    // dd($request->date('birthdate')->diffForHumans());
+    // dd($request->query());
+    // dd($request->birthdate);
+});
