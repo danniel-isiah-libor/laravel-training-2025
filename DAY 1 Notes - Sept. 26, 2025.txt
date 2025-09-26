@@ -85,7 +85,16 @@ Laravel Passport
 •	php artisan down --secret=password ex. --secret=waitlangmuna -to access just browse ex. 127.0.0.1/secret=password
 •	test - features test, unit test
 •	
-•	
+SCRUM
+  Sprint Planning
+    - in sprints normally 1 week or 2 weeks
+    - story points
+    - sprint 1 - ex. total story points: 30 should meet or carry over on the next sprint
+    - sprint 2 - ex. total: 30 - can also do meetings and brainstorming re the sprint goals
+    - sprint retrospective - reviewing what has been done in the sprints like past sprints then compare to the current sprints, blah blah
+    - Todo, Progress, Done
+    - kanban - like scrum but no sprints, there's still todo, progress, done but no commits or ceremonies like the sprints of scrum
+    - Scrum tools: JIRA (free/paid),Trello, Gitlab, etc.
 •	
 •	
 •	
