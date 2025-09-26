@@ -1,0 +1,53 @@
+LARAVEL NOTES
+•	Route > Controller > Model (db) > View
+•	Model 1 is to 1 db
+•	Views/templates – tailwind
+•	Authentication is out of the box
+•	Sessions are automatically
+•	Files can be stored on another server via path
+•	Error page is improved for viewing
+•	Options to store cache either files or db
+•	ARTISAN COMMANDS
+•	Custom commands
+•	You can schedule commands just like cron jobs
+•	All db is supported by Laravel
+
+git config user.email "email@email.com"
+PS C:\laragon\www\laravel-training-2025> git config user.name "username"
+
+Production
+>main
+>
+
+Development (branch)
+•	Branch pull request ex. “feat/login”
+•	Checkout new branch ex. “feat/blahblah”
+•	Branch out ex. feat (app), fix (app), docs (app)
+
+Staging
+
+Cycle PR = Development > Staging > Production
+
+Upon approval in the staging PR, then make the Production PR
+
+•	Command: composer update – when updating the composer e.g. update version of php
+•	Methods: Get, Post, Put, Patch, Delete
+•	Get method- /, function
+•	Return view
+•	View is a helper function
+•	Ex. return view(‘welcome’); - getting the welcome.blade.php in the resources>views folder
+•	No need to make the whole welcome.blade.php
+•	Vendor publish to expose other error files e.g. 401, 403, etc.
+•	You may delete other error files and leave what you need ex. leave 403
+•	Php artisan install:api – install api to the project
+
+•	Auth(passport/sanctum)
+•	Recipe
+•	React – mobile/tablet/desktop/
+•	React-Auth-Token-React-Recipe-Auth-Recipe-React
+•	Auth-React-Recipe within different servers and auth,recipe has its own db
+•	Users db is in Auth service
+•	
+
+
+
