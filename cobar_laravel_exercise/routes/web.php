@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,4 +27,13 @@ Route::prefix('/admin')->name('admin.')->group(function(){
 
 Route::get('go-to-admin', function(){
     return redirect()->route('admin.dashboard');
+});
+
+Route::get('/user/{id?}', function ($id = null){
+    return 'User ID:'.$id;
+});
+
+Route::get('/request', function(Request $request){
+    // dump();
+    dd($request);
 });
