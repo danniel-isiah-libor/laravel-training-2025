@@ -61,6 +61,8 @@ Upon approval in the staging PR, then make the Production PR
 filament - a new laravel framework
 filamentphp.com
 
+Laravel Telescope - for debugging use, to monitor your laravel project
+
 •	
 •	
 •	
