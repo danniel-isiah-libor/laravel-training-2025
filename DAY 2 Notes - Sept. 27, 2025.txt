@@ -1,0 +1,18 @@
+DAY 2 Notes
+Sept. 27, 2027
+
+* You may introduce new pattern - Router>Controller>Repository>Model
+* DRY - Do not Repeat Yourself
+* Segregate queries ex. attributes, relationships, scopes, user
+* Laravel prism - a powerful Laravel package for integrating Large Language Models (LLMs) into your applications.
+* how to run laravel: composer run dev or php artisan serve
+* in blade template engine, @ and @end, no more curly brases {}
+* typical component of a web page: Header, Footer, Nav, Body
+* ex. Dashboard page and Profile page, use repeatable components like header, footer, nav
+* separate them into file ex. header.blade, footer.blade
+* same with the forms ex. Login page, registration page - both have email and password fields so make them in a separate file
+* same with buttons, you can make them in a file, the properties are the only change ex. button label
+* when it comes to the design, use tailwind css
+* Tailwind CSS - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+* make sure the indentations of the syntax are aligned
+* php artisan make:view

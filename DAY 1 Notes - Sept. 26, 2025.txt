@@ -1,0 +1,101 @@
+LARAVEL NOTES
+DAY 1: SEPTEMBER 26, 2025
+
+•	Route > Controller > Model (db) > View
+•	Model 1 is to 1 db
+•	Views/templates – tailwind
+•	Authentication is out of the box
+•	Sessions are automatically
+•	Files can be stored on another server via path
+•	Error page is improved for viewing
+•	Options to store cache either files or db
+•	ARTISAN COMMANDS
+•	Custom commands
+•	You can schedule commands just like cron jobs
+•	All db is supported by Laravel
+
+git config user.email "email@email.com"
+PS C:\laragon\www\laravel-training-2025> git config user.name "username"
+
+Production
+>main
+>
+
+Development (branch)
+•	Branch pull request ex. “feat/login”
+•	Checkout new branch ex. “feat/blahblah”
+•	Branch out ex. feat (app), fix (app), docs (app)
+
+Staging
+
+Cycle: PR = Development > Staging > Production
+
+Upon approval in the staging PR, then make the Production PR
+
+•	Command: composer update – when updating the composer e.g. update version of php
+•	Methods: Get, Post, Put, Patch, Delete
+•	Get method- /, function
+•	Return view
+•	View is a helper function
+•	Ex. return view(‘welcome’); - getting the welcome.blade.php in the resources>views folder
+•	No need to make the whole welcome.blade.php
+•	Vendor publish to expose other error files e.g. 401, 403, etc.
+•	You may delete other error files and leave what you need ex. leave 403
+•	Php artisan install:api – install api to the project
+
+•	Auth(passport/sanctum)
+•	Recipe
+•	React – mobile/tablet/web/desktop/
+•	React-Auth-Token-React-Recipe-Auth-Recipe-React
+•	Auth-React-Recipe within different servers and auth,recipe has its own db
+•	Users db is in Auth service
+•	If running the services, run each services ex. npm run dev, etc.
+•	ionic docs
+•	javascript - import plugin of ionic capacitor
+•	ionic is for javascript framework
+•	php artisan or php artisan list - to view the list of all artisan commands
+•	Naming conventions use the PascalCase, camellCase, snake_case, kebab-case
+•	in naming controllers, use PascalCase
+•	end always with the word "Controller" if its controller. ex. UserController, NameController, etc.
+•	Views - in Blade, always starts with @ and ends with @endOperation e.g. @if -- @endIf, etc.
+•	double curly braces {{ }} or double exclamation point !! !!
+
+filament - a new laravel framework
+filamentphp.com
+
+Laravel Telescope - for debugging use, to monitor your laravel project
+-for local use because it consumes high resources
+
+Laravel Pulse - just like telescope. 
+- a real-time application performance monitoring tool and dashboard for Laravel applications. It provides insights into your application's performance and usage, helping you track down bottlenecks, find active users, and more.
+
+Laravel Horizon
+-  a powerful tool designed for managing and monitoring queues in Laravel applications. It provides a real-time, user-friendly interface that allows developers to monitor the status of their queues, view detailed job information, and configure various settings related to their queues.
+
+Laravel MCP
+- provides a simple and elegant way for AI clients to interact with your Laravel application through the Model Context Protocol. It offers an expressive, fluent interface for defining servers, tools, resources, and prompts that enable AI-powered interactions with your application.
+
+Laravel Passport
+- provides a full OAuth2 server implementation for your Laravel application in a matter of minutes. Passport is built on top of the League OAuth2 server that is maintained by Andy Millington and Simon Hamp.
+
+•	php artisan env:encrypt - to encrypt/secure the env file. it will create key that you need to secure for decrypting.
+•	php artisan env:decrypt --key= (key) -to decrypt the env file.
+•	php artisan down - to become under maintenance mode - 503 | Service Maintenance - you may modify this 503 mode on the vendor publish
+•	php artisan about - to check the status/info of the project
+•	php artisan down --secret=password ex. --secret=waitlangmuna -to access just browse ex. 127.0.0.1/secret=password
+•	test - features test, unit test
+•	
+SCRUM
+  Sprint Planning
+    - in sprints normally 1 week or 2 weeks
+    - story points
+    - sprint 1 - ex. total story points: 30 should meet or carry over on the next sprint
+    - sprint 2 - ex. total: 30 - can also do meetings and brainstorming re the sprint goals
+    - sprint retrospective - reviewing what has been done in the sprints like past sprints then compare to the current sprints, blah blah
+    - Todo, Progress, Done
+    - kanban - like scrum but no sprints, there's still todo, progress, done but no commits or ceremonies like the sprints of scrum
+    - Scrum tools: JIRA (free/paid),Trello, Gitlab, etc.
+
+•	if subscribed to enterprise of github, utilize the branch rules to avoid or secure the .env file
+•	
+•	
