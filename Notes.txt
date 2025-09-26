@@ -76,10 +76,12 @@ Laravel MCP
 Laravel Passport
 - provides a full OAuth2 server implementation for your Laravel application in a matter of minutes. Passport is built on top of the League OAuth2 server that is maintained by Andy Millington and Simon Hamp.
 
+•	php artisan env:encrypt - to encrypt/secure the env file. it will create key that you need to secure for decrypting.
+•	php artisan env:decrypt --key= (key) -to decrypt the env file.
+•	php artisan down - to become under maintenance mode - 503 | Service Maintenance - you may modify this 503 mode on the vendor publish
+•	php artisan about - to check the status/info of the project
+•	php artisan down --secret=password ex. --secret=waitlangmuna -to access just browse ex. 127.0.0.1/secret=password
+•	test - features test, unit test
 •	
-•	
-•	
-•	
-
 
 
