@@ -9,4 +9,5 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::prefix('user')->group(function(){
     Route::get('info', [UserController::class, 'info']);
+    Route::get('list/{id}', [UserController::class, 'show']);
 });

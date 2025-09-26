@@ -45,4 +45,35 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function getData($id){
+        $data = [
+            1=>[
+                'name'=>'John Doe',
+                'email'=>'johndoe@gmail.com',
+            ],
+            2=>[
+                'name'=>'Jane Doe',
+                'email'=>'johndoe@gmail.com',
+            ],
+            3=>[
+                'name'=>'John Doe',
+                'email'=>'johndoe@gmail.com',
+            ],
+            4=>[
+                'name'=>'John Doe',
+                'email'=>'johndoe@gmail.com',
+            ],
+            5=>[
+                'name'=>'John Doe',
+                'email'=>'johndoe@gmail.com',
+            ],
+        ];
+        $keys = array_keys($data);
+        $objectData = array();
+        foreach ($keys as $key) {
+            array_push($objectData, (object)$data[1]);
+        }
+        return $objectData;
+    }
 }
