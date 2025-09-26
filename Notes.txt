@@ -73,6 +73,9 @@ Laravel Horizon
 Laravel MCP
 - provides a simple and elegant way for AI clients to interact with your Laravel application through the Model Context Protocol. It offers an expressive, fluent interface for defining servers, tools, resources, and prompts that enable AI-powered interactions with your application.
 
+Laravel Passport
+- provides a full OAuth2 server implementation for your Laravel application in a matter of minutes. Passport is built on top of the League OAuth2 server that is maintained by Andy Millington and Simon Hamp.
+
 •	
 •	
 •	
