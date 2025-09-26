@@ -54,7 +54,7 @@ Upon approval in the staging PR, then make the Production PR
 •	php artisan or php artisan list - to view the list of all artisan commands
 •	Naming conventions use the PascalCase, camellCase, snake_case, kebab-case
 •	in naming controllers, use PascalCase
-•	
+•	end always with the word "Controller" if its controller. ex. UserController, NameController, etc.
 •	
 •	
 •	
