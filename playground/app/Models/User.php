@@ -45,4 +45,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // convert to object to use arrows
+    public static function getData($id){
+        $data = (object)[
+            1=>(object)[
+                'name' => 'John Doe',
+                'email' => 'johndoe@example.com'
+            ],
+            2=>(object)[
+                'name' => 'Red Velvet',
+                'email' => 'redvelvet@example.com'
+            ]
+            ];
+
+        return $data->$id;
+    }
 }
