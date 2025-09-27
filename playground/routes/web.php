@@ -42,3 +42,6 @@ Route::get('/request', function (Request $request) {
     // dd($request->query());
     // dd($request->birthdate);
 });
+
+Route::view('/sign-up', 'signup')->name('signup');
+Route::view('/sign-in', 'signin')->name('signin');
