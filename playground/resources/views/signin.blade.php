@@ -2,7 +2,9 @@
     <x-auth-header title="Sign in to your account" />
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form action="#" method="POST" class="space-y-6">
+    <form action="{{ route('user.login') }}" method="POST" class="space-y-6">
+        @csrf
+
         <x-forms.input-field label="Email" name="email" type="email"/>
 
         <x-forms.input-field label="Password" name="password" type="password"/>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\StatusRule;
+use Closure;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
@@ -23,6 +25,11 @@ class SignupRequest extends FormRequest
     public function rules(): array
     {
         return [
+            // 'user_id' => [
+            //     'required',
+            //     'integer',
+            //     // 'exists:users,id'
+            // ],
             'name' => [ // 'required|string'
                 'required',
                 'string',
@@ -48,7 +55,31 @@ class SignupRequest extends FormRequest
                     ->uncompromised(),
                 // 'max:12',
                 // 'min:8',
-            ]
+            ],
+            // 'status' => [
+            //     new StatusRule(),
+
+            //     function (string $attribute, mixed $value, Closure $fail) {
+            //         if ($value !== 'active') {
+            //             $fail('Status must be active.');
+            //         }
+            //     }
+            // ]
         ];
     }
+
+    // public function messages()
+    // {
+    //     return [
+    //         'email.email' => 'The email is invalid format.',
+    //     ];
+    // }
+
+    // protected function prepareForValidation()
+    // {
+    //     $this->merge([
+    //         'user_id' => 1,
+    //         'status' => 'inactive',
+    //     ]);
+    // }
 }

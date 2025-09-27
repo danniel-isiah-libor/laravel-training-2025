@@ -48,3 +48,5 @@ Route::view('/sign-in', 'signin')->name('signin');
 
 Route::post('/sign-up', [UserController::class, 'store'])->name('user.store');
 Route::post('/sign-in', [UserController::class, 'login'])->name('user.login');
+
+Route::view('/interests', 'interests')->name('interests');
