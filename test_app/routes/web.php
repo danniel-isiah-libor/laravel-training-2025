@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,7 @@ Route::get('/request', function (Request $request) {
     // dd($request);
     dd($request->boolean('is_admin'));
 });
+
+
+Route::get('/sign-up', [AuthController::class, 'signup']);
+Route::get('/sign-in', [AuthController::class, 'signin']);
