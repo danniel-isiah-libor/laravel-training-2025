@@ -46,27 +46,28 @@ class User extends Authenticatable
         ];
     }
 
-    public static function getData($id){
+    public static function getData($id)
+    {
         $data = [
-            1=>[
-                'name'=>'John Doe',
-                'email'=>'johndoe@gmail.com',
+            1 => [
+                'name' => 'Thich Nhat Hanh',
+                'email' => 'johndoe@gmail.com',
             ],
-            2=>[
-                'name'=>'Jane Doe',
-                'email'=>'johndoe@gmail.com',
+            2 => [
+                'name' => 'Jane Doe',
+                'email' => 'johndoe@gmail.com',
             ],
-            3=>[
-                'name'=>'John Doe',
-                'email'=>'johndoe@gmail.com',
+            3 => [
+                'name' => 'John Doe',
+                'email' => 'johndoe@gmail.com',
             ],
-            4=>[
-                'name'=>'John Doe',
-                'email'=>'johndoe@gmail.com',
+            4 => [
+                'name' => 'John Doe',
+                'email' => 'johndoe@gmail.com',
             ],
-            5=>[
-                'name'=>'John Doe',
-                'email'=>'johndoe@gmail.com',
+            5 => [
+                'name' => 'John Doe',
+                'email' => 'johndoe@gmail.com',
             ],
         ];
         $keys = array_keys($data);
@@ -74,6 +75,6 @@ class User extends Authenticatable
         foreach ($keys as $key) {
             array_push($objectData, (object)$data[1]);
         }
-        return $objectData;
+        return (object)$data[1];
     }
 }

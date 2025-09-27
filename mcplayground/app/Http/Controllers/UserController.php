@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function info(){
+    public function info()
+    {
         return response()->json("User");
     }
-    public function show(Request $request, $id){
+    public function show(Request $request, $id)
+    {
         $data = User::getData($id);
-        return view('home', ['data'=>$data]);
+        return view('user.profile', ['data' => $data]);
     }
 }
