@@ -25,4 +25,5 @@ Sept. 27, 2027
 * php artisan make:component --inline -> use in a static design
 * php artisan make:component --view -> if you will not make manipulation
 * CTRL+P - search files in visual studio code
+* npm install - install node
 * 
