@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InterestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,4 +50,7 @@ Route::view('/sign-in', 'signin')->name('signin');
 Route::post('/sign-up', [UserController::class, 'store'])->name('user.store');
 Route::post('/sign-in', [UserController::class, 'login'])->name('user.login');
 
-Route::view('/interests', 'interests')->name('interests');
+// Route::view('/interests', 'interests')->name('interests');
+
+Route::get('/interests', [InterestController::class, 'index'])->name('interests.index');
+Route::post('/interests', [InterestController::class, 'store'])->name('interests.store');

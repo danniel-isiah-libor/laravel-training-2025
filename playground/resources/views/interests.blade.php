@@ -1,18 +1,20 @@
 <x-layout>
-    <form action="" method="POST" style="color: white">
-        <input type="checkbox" value="Laravel"> Laravel
+    <form action="{{ route('interests.store') }}" method="POST" style="color: white">
+        @csrf
+
+        @foreach($interests as $interest)
+            <x-forms.input-field name="interests[]" label="{{ $interest }}" value="{{ $interest }}" type="checkbox"/>
+        @endforeach
+
+        <x-forms.input-field name="interests[]" label="Python" value="Python" type="checkbox"/>
 
         <br>
 
-        <input type="checkbox" value="Vue.js"> Vue.js
-
-        <br>
-
-        <input type="checkbox" value="React.js"> React.js
-
-        <br>
-
-        <input type="checkbox" value="Angular.js"> Angular.js
+        @error('interests')
+            <p class="mt-2 text-sm text-red-600">
+                {{ $message }}
+            </p>
+        @enderror
 
         <br>
 
