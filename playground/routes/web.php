@@ -45,3 +45,6 @@ Route::get('/request', function (Request $request) {
 
 Route::view('/sign-up', 'signup')->name('signup');
 Route::view('/sign-in', 'signin')->name('signin');
+
+Route::post('/sign-up', [UserController::class, 'store'])->name('user.store');
+Route::post('/sign-in', [UserController::class, 'login'])->name('user.login');

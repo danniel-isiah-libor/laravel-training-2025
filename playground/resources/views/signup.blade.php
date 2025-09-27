@@ -2,15 +2,16 @@
     <x-auth-header title="Sign up" />
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form action="#" method="POST" class="space-y-6">
+    <form action="{{ route('user.store') }}" method="POST" class="space-y-6">
+        @csrf
 
         <x-forms.input-field label="Name" name="name" />
 
         <x-forms.input-field label="Email" name="email" type="email"/>
 
-        <x-forms.input-field label="Password" name="password" type="password"/>
+        <x-forms.input-field label="Password" name="password" type="text"/>
 
-        <x-forms.input-field label="Password Confirmation" name="password_confirmation" type="password"/>
+        <x-forms.input-field label="Password Confirmation" name="password_confirmation" type="text"/>
 
         <x-forms.button label="Sign up" />
     </form>
