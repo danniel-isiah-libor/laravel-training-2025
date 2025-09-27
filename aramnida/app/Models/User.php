@@ -48,41 +48,20 @@ class User extends Authenticatable
 
     public static function getData($id)
     {
-        $records = [
-                1 => [
+        $records = (object)[
+                1 => (object)[
                     'name' => 'John Doe',
                     'email' => 'john@example.com'
                 ],
-                2 => [
+                2 => (object)[
                     'name' => 'Jane Smith',
                     'email' => 'jane@example.com'
                 ],            
-                3 => [
+                3 => (object)[
                     'name' => 'Bob johnson',
                     'email' => 'bob@example.com'
                 ]
             ];
-        return $records[$id];
+        return $records->$id;
     }
-
-    // public static function getData($id)
-    // {
-    //     $records = (object)[
-    //         1 => (object)[
-    //             'name' => 'John Doe',
-    //             'email' => 'john@example.com'
-    //         ],
-    //         2 => (object)[
-    //             'name' => 'Jane Smith',
-    //             'email' => 'jane@example.com'
-    //         ],
-    //         3 => (object)[
-    //             'name' => 'Bob Johnson',
-    //             'email' => 'bob@example.com'
-    //         ],
-    //     ];
-
-    //     return $records->$id;
-    // }
-
 }

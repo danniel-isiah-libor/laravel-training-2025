@@ -8,13 +8,15 @@ use Illuminate\Http\Request;
 class RegistrationController extends Controller
 {
 
-    // public function __invoke(){
+    public function __invoke(){
 
-    // }
+    }
     public function show(Request $request, $id = null) {
 
         $user = User::getData($id);
-         return $user;
+        //dd($user);
+        return view('show', ['user'=> $user]);
+        //return $user;
     }
 
 
