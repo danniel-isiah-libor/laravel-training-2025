@@ -3,11 +3,22 @@
 @section('content')
     <div class="h-full flex justify-center items-center">
         <form action="{{ route('user.store') }}" method="POST"
-            class="border border-black/30 rounded-sm p-5 w-1/3 h-2/3 flex flex-col">
+            class="border border-black/30 rounded-sm p-5 w-1/3 h-4/5 flex flex-col">
             @csrf
 
             <div class="basis-[80%]">
                 <h1 class="text-center text-2xl uppercase my-5">Welcome to Login Page</h1>
+
+                <div class="flex flex-col my-2">
+                    <label for="name">Full Name</label>
+                    <input class="border border-black/30 rounded-sm p-2" type="text" name="name" id="name"
+                        placeholder="Full Name" value="{{ old('name') }}">
+                </div>
+                @error('name')
+                    <p class="mt-2 text-sm text-red-600">
+                        {{ $message }}
+                    </p>
+                @enderror
 
                 <div class="flex flex-col my-2">
                     <label for="email">Email</label>
