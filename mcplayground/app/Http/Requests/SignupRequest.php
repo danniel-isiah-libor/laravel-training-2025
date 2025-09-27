@@ -38,7 +38,7 @@ class SignupRequest extends FormRequest
                 // Password::min(8)->max(12)->symbols()->mixedCase()->numbers()->letters()->uncompromised(),
             ],
             'status' => [
-                new StatusRule(),
+                // new StatusRule(),
             ],
         ];
     }
