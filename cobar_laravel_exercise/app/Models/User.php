@@ -58,19 +58,23 @@ class User extends Authenticatable
             ],
             3 => [
                 'name'  => 'Maui Taylor',
-                'email' => 'mauitaylor@mail.com'
+                'email' => 'mauitaylor@mail.com',
             ],
             4 => [
                 'name'  => 'Joyce Jimenez',
-                'email' => 'joycejimenez@mail.com'
+                'email' => 'joycejimenez@mail.com',
             ],
             5 => [
                 'name'  => 'Johnny Sins',
-                'email' => 'johnnysins@mail.com'
-            ]
+                'email' => 'johnnysins@mail.com',
+            ],
+            6 => [
+                'name'  => 'Jibo Cobar',
+                'email' => 'jibo.cobar16@gmail.com',
+            ],
         ];
 
-        if ($id){
+        if ($id) {
             return $users[$id] ?? null;
         }
 
