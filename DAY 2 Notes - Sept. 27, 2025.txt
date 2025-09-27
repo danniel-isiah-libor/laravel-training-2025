@@ -1,0 +1,6 @@
+DAY 2 Notes
+Sept. 27, 2027
+
+* You may introduce new pattern - Router>Controller>Repository>Model
+* DRY - Do not Repeat Yourself
+* 
