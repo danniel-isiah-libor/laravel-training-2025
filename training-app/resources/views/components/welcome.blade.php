@@ -20,7 +20,9 @@
         @endif
     </head>
     <body>
-        
+     
+    <h1>Navbar</h1>
+    {{ $slot }}
 
     </body>
 </html>
