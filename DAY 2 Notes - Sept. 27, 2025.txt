@@ -5,4 +5,9 @@ Sept. 27, 2027
 * DRY - Do not Repeat Yourself
 * Segregate queries ex. attributes, relationships, scopes, user
 * Laravel prism - a powerful Laravel package for integrating Large Language Models (LLMs) into your applications.
+* how to run laravel: composer run dev or php artisan serve
+* in blade template engine, @ and @end, no more curly brases {}
+* typical component of a web page: Header, Footer, Nav, Body
+* ex. Dashboard page and Profile page, use repeatable components like header, footer, nav
+* separate them into file ex. header.blade, footer.blade
 * 
