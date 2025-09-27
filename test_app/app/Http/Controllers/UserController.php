@@ -11,9 +11,6 @@ class UserController extends Controller
     {
         $user = User::getData($id);
 
-        return "<ul>
-            <li>Name: $user->name</li>
-            <li>Email: $user->email</li>
-        </ul>";
+        return view('users.profile', compact('user'));
     }
 }
