@@ -31,4 +31,5 @@ Sept. 27, 2027
 * npm install - install node
 >>>>>>> 204b12bbba9352a5ed65f4a7c5196d43f64324cb
 * fluxui.dev -for frontend dev
+* php artisan make:request
 * 
