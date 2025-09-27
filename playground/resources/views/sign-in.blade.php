@@ -14,7 +14,8 @@
         <a href="{{ route('sign-up') }}"><h6  class="font-semibold text-red-300 hover:text-indigo-500 text-center">Does not have an account? Sign Up</h6></a>
   </x-slot:header>
   <x-slot>
-    <form action="#" method="POST" class="space-y-6">
+    <form action="{{ route('user.login') }}" method="POST" class="space-y-6">
+        @csrf
         <x-labeled-input-field id="email" label="Email Address" name="email" type="email"/>
         <x-labeled-input-field id="password" label="Password" name="password" type="password"/>
         <x-form.button.primary text="submit" type="submit"/>

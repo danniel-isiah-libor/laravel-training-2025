@@ -1,4 +1,4 @@
-@props(['title'=>null, 'style' => "color:red"])
+@props(['title'=>null, 'style' => "color:red", 'header' => null])
 <!DOCTYPE html>
 <html lang="en">
 <head>

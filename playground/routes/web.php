@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\{InterestController, UserController};
 
 Route::get('/', function () {
     // return view('welcome');
@@ -20,9 +20,11 @@ Route::get('/sign-up', function(){
 
 Route::prefix('/')->name('user.')->group(function(){
     Route::post('/sign-up', [UserController::class, 'store'])->name('store');
+    Route::post('/sign-in', [UserController::class, 'login'])->name('login');
 });
 
-
+Route::get('/interests', [InterestController::class, 'index']);
+Route::post('/interests/validate', [InterestController::class, 'store'])->name('interest.validate');
 
 Route::redirect('go-to-users', '/admin/users/users');
 
