@@ -23,7 +23,7 @@ class SignupRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            // 'email' => 'required|string|email|max:255|unique:users|regex:/^.+@.+\..+$/',
+            'email' => 'required|string|email|max:255|unique:users|regex:/^.+@.+\..+$/',
             'password' => [
                 'required',
                 'string',
@@ -32,6 +32,20 @@ class SignupRequest extends FormRequest
                 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
             ],
             'password_confirmation' => 'required|string|same:password',
+        ];
+    }
+
+    /**
+     * Get the custom validation messages for the request.
+     *
+     * @return array<string, string>
+     */
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'The email field is required.',
+            'email.email' => 'The email format is invalid. Please enter a valid email address.',
+            'email.unique' => 'This email is already registered.',
         ];
     }
 }
