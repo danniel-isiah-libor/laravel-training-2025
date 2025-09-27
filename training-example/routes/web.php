@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,9 @@ Route::get('/user/{id}', [UserController::class, 'show'])->name('user');
 Route::get('/request', function (Request $request){ 
     dd($request);
 });
+
+Route::get('/register', [UserController::class, 'index']);
+Route::post('/register', [UserController::class, 'store'])->name('register');
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'store'])->name('login');
