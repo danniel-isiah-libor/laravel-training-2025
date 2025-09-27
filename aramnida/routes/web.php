@@ -1,15 +1,32 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-
         // return '<h1>Hello Ice!</h1>';
 });
 
+Route::get('/signup', function () {
+    return view('sign-up');
+});
+
+Route::get('/signin', function () {
+    return view('sign-in');
+});
+
+Route::get('/interests', function () {
+    return view('interests');
+});
+
+Route::post('/interests', [RegisterController::class, 'check_interest'])->name('register.check_interest');
+
+Route::post('/signup', [RegisterController::class, 'store'])->name('register.store');
+
+Route::post('/signin', [RegisterController::class, 'login'])->name('register.login');
 
 // Route::prefix('/admin')->group(function (){
 //     Route::prefix('/users')->group(function (){
@@ -34,7 +51,7 @@ Route::prefix('/admin')->name('admin.')->group(function (){
 
         Route::get('/dashboard', function() {
             return 'Admin Dashboard';
-        })->name('dashboard');
+        })->name('dashboard'); 
     });
 
 });

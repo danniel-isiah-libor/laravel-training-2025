@@ -46,6 +46,7 @@ class User extends Authenticatable
         ];
     }
 
+
     public static function getData($id)
     {
         $records = (object)[
@@ -64,4 +65,17 @@ class User extends Authenticatable
             ];
         return $records->$id;
     }
+
+
+
+    public static function getInterest()
+    {
+        return [
+        'Laravel',
+        'Vue',
+        'React',
+        'Angular'
+        ];
+    }
+
 }
