@@ -29,6 +29,18 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
+        $validatedForm = $request->validate([
+            'email'    => [
+                'required',
+                'string',
+                'email',
+            ],
+            'password' => [
+                'required',
+                'string',
+            ],
+        ]);
 
+        dd($validatedForm);
     }
 }

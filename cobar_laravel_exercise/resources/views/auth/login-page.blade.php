@@ -1,7 +1,8 @@
 @extends('welcome')
+
 @section('content')
     <div class="h-full flex justify-center items-center">
-        <form action="#" method="POST"
+        <form action="{{ route('user.login') }}" method="POST"
             class="border border-black/30 rounded-lg p-5 w-1/3 h-1/2 shadow-lg shadow-black/60 flex flex-col">
             @csrf
 
@@ -10,14 +11,14 @@
 
                 <div class="flex flex-col my-2">
                     <label for="email">Email</label>
-                    <input class="border border-black/30 rounded-sm p-2" type="text" name="email" id="email"
-                        placeholder="Email address">
+                    <input class="border border-black/30 rounded-sm p-2" type="text" name="email" required
+                        autocomplete="email" id="email" placeholder="Email address">
                 </div>
 
                 <div class="flex flex-col my-2">
                     <label for="password">Password</label>
-                    <input class="border border-black/30 rounded-sm p-2" type="password" name="password" id="password"
-                        placeholder="Password">
+                    <input class="border border-black/30 rounded-sm p-2" type="password" name="password" required
+                        autocomplete="password" id="password" placeholder="Password">
                 </div>
             </div>
 
