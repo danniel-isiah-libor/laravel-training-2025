@@ -14,4 +14,5 @@ Sept. 27, 2027
 * same with buttons, you can make them in a file, the properties are the only change ex. button label
 * when it comes to the design, use tailwind css
 * Tailwind CSS - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
-* 
+* make sure the indentations of the syntax are aligned
+* php artisan make:view
