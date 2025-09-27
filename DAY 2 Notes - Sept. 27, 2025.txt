@@ -16,3 +16,12 @@ Sept. 27, 2027
 * Tailwind CSS - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 * make sure the indentations of the syntax are aligned
 * php artisan make:view
+* {{ }} - equals to echo
+* to make it sure the data type aligns use - ex. :user='$user'
+* php artisan optimize - to clear cache
+* php artisan make:component
+* php artisan make:component --view
+* @props('user') or @props(['user' => null])
+* php artisan make:component --inline -> use in a static design
+* php artisan make:component --view -> if you will not make manipulation
+* 
