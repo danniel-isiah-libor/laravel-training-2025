@@ -47,12 +47,18 @@ class User extends Authenticatable
     }
 
     public static function getData($id){
-        $users = [
-            1 => [ 'Name' => 'Alice', 'Email' => 'alice@example.com'],
-            2 => [ 'Name' => 'Bob', 'Email' => 'bob@example.com'],
-            3 => [ 'Name' => 'Charlie', 'Email' => 'charlie@example.com']
-        ];
-        if ($id === null) return $users;
-        return $users[$id] ?? null;
+    $users = [
+        1 => (object)[ 'Name' => 'Alice', 'Email' => 'alice@example.com'],
+        2 => (object)[ 'Name' => 'Bob', 'Email' => 'bob@example.com'],
+        3 => (object)[ 'Name' => 'Charlie', 'Email' => 'charlie@example.com']
+    ];
+
+    if ($id === null) {
+        // Cast the entire array of users to objects
+        return array_map(fn($user) => (object)$user, $users);
     }
+
+    return $users[$id] ?? null;
+}
+
 }
