@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,4 +20,10 @@ Route::prefix('/admin')->name('admin.')->group(function () {
     Route::get('/event-logs', function () {
         return 'Admin Event Logs';
     })->name('event-logs');
+});
+
+Route::get('/user/{id}', [UserController::class, 'show'])->name('user');
+ 
+Route::get('/request', function (Request $request){ 
+    dd($request);
 });
