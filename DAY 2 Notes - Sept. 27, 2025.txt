@@ -10,4 +10,8 @@ Sept. 27, 2027
 * typical component of a web page: Header, Footer, Nav, Body
 * ex. Dashboard page and Profile page, use repeatable components like header, footer, nav
 * separate them into file ex. header.blade, footer.blade
+* same with the forms ex. Login page, registration page - both have email and password fields so make them in a separate file
+* same with buttons, you can make them in a file, the properties are the only change ex. button label
+* when it comes to the design, use tailwind css
+* Tailwind CSS - A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 * 
