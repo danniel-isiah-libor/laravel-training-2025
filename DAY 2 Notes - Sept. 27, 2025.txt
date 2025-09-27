@@ -3,4 +3,6 @@ Sept. 27, 2027
 
 * You may introduce new pattern - Router>Controller>Repository>Model
 * DRY - Do not Repeat Yourself
+* Segregate queries ex. attributes, relationships, scopes, user
+* Laravel prism - a powerful Laravel package for integrating Large Language Models (LLMs) into your applications.
 * 
