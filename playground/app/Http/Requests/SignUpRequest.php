@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\StatusRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
@@ -26,6 +27,9 @@ class SignUpRequest extends FormRequest
             'user_id' => [
                 'required',
                 // 'exists:users,id'
+            ],
+            'status' => [
+                new StatusRule()
             ],
              'name' => [
                 'required',
@@ -66,7 +70,8 @@ class SignUpRequest extends FormRequest
     // for merging data without passing through front-end
 
         $this->merge([
-            'user_id' => 1
+            'user_id' => 1,
+            'status' => 'inactive'
         ]);
     }
 }
