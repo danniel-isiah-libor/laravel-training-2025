@@ -24,4 +24,5 @@ Sept. 27, 2027
 * @props('user') or @props(['user' => null])
 * php artisan make:component --inline -> use in a static design
 * php artisan make:component --view -> if you will not make manipulation
+* CTRL+P - search files in visual studio code
 * 
