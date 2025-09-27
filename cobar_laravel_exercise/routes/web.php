@@ -34,3 +34,9 @@ Route::get('/request', function (Request $request) {
     // dump();
     dd($request);
 })->name('request');
+
+Route::view('/sign-up', 'auth.sign-up')->name('signup');
+Route::view('/log-in', 'auth.login-page')->name('login');
+
+Route::post('/sign-up', [UserController::class, 'store'])->name('user.store');
+Route::post('/log-in', [UserController::class, 'login'])->name('user.login');
