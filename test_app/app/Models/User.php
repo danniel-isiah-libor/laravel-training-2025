@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -32,7 +33,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    
+    protected $withCount = ['posts'];
+    
     /**
      * Get the attributes that should be cast.
      *
@@ -48,21 +51,31 @@ class User extends Authenticatable
 
     public static function getData($id)
     {
-        $users = (object) [
-            1 => (object) [
-                'name' => 'John Doe',
-                'email' => 'john@example.com'
-            ],
-            2 => (object) [
-                'name' => 'Jane Smith',
-                'email' => 'jane@example.com'
-            ],
-            3 => (object) [
-                'name' => 'Bob Johnson',
-                'email' => 'bob@example.com'
-            ],
-        ];
+        // $users = (object) [
+        //     1 => (object) [
+        //         'name' => 'John Doe',
+        //         'email' => 'john@example.com'
+        //     ],
+        //     2 => (object) [
+        //         'name' => 'Jane Smith',
+        //         'email' => 'jane@example.com'
+        //     ],
+        //     3 => (object) [
+        //         'name' => 'Bob Johnson',
+        //         'email' => 'bob@example.com'
+        //     ],
+        // ];
 
-        return $users->$id;
+        // using DB facades
+        // $user = DB::select('select * from users where id = ?', [$id]);
+
+        $user = User::select('*')->where('id', $id)->first();
+
+        return $user;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
