@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
   use HasFactory;
-
-  public $fillable = ["title", "body", "user_id"];
+  protected $table = "posts";
+  protected $connection = "mysql2";
+  protected $fillable = ["title", "body", "user_id"];
 }
