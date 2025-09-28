@@ -1,5 +1,4 @@
-@extends('welcome')
-@section('content')
+<x-layout>
     <div class="h-full flex justify-center items-center">
         <form action="{{ route('interests.store') }}" method="POST"
             class="border border-black/30 rounded-lg w-1/2 h-3/5 p-5 shadow-lg shadow-black/60 flex flex-col">
@@ -26,4 +25,4 @@
 
         </form>
     </div>
-@endsection
+</x-layout>

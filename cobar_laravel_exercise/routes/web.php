@@ -9,17 +9,23 @@ Route::get('/', function () {
     return view('welcome');
 })->name('homepage');
 
-Route::prefix('/admin')->name('admin.')->group(function () {
-    Route::prefix('/users')->name('users.')->group(function () {
-        Route::get('/profile/{id?}', [UserController::class, 'show'])->name('profile');
+Route::prefix('/admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::prefix('/users')
+            ->name('users.')
+            ->group(function () {
+                Route::get('/profile/{id?}', [UserController::class, 'show'])
+                    ->name('profile');
 
-        Route::get('information', UserController::class)->name('information');
+                Route::get('information', UserController::class)
+                    ->name('information');
+            });
+
+        Route::get('/dashboard', function () {
+            return 'Admin Dashboard';
+        })->name('dashboard');
     });
-
-    Route::get('/dashboard', function () {
-        return 'Admin Dashboard';
-    })->name('dashboard');
-});
 
 // Route::redirect('/go-to-admin', '/admin/dashboard', 301);
 

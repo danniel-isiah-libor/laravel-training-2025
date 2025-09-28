@@ -1,6 +1,4 @@
-@extends('welcome')
-
-@section('content')
+<x-layout>
     <div class="h-full flex justify-center items-center">
         <form action="{{ route('user.login') }}" method="POST"
             class="border border-black/30 rounded-lg p-5 w-1/3 h-1/2 shadow-lg shadow-black/60 flex flex-col">
@@ -35,7 +33,6 @@
                 </div>
             </div>
 
-
         </form>
     </div>
-@endsection
+</x-layout>

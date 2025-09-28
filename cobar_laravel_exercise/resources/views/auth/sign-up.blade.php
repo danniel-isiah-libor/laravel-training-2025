@@ -1,6 +1,4 @@
-@extends('welcome')
-
-@section('content')
+<x-layout>
     <div class="h-full flex justify-center items-center">
         <form action="{{ route('user.store') }}" method="POST"
             class="border border-black/30 rounded-lg p-5 w-1/3 h-4/5 shadow-lg shadow-black/60 flex flex-col">
@@ -11,8 +9,8 @@
 
                 <div class="flex flex-col my-2">
                     <label for="name">Full Name</label>
-                    <input class="border border-black/30 rounded-sm p-2" type="text" name="name" id="name" required
-                        autocomplete="name" placeholder="Full Name" value="{{ old('name') }}">
+                    <input class="border border-black/30 rounded-sm p-2" type="text" name="name" id="name"
+                        required autocomplete="name" placeholder="Full Name" value="{{ old('name') }}">
                 </div>
                 @error('name')
                     <p class="mt-2 text-sm text-red-600">
@@ -69,4 +67,4 @@
 
         </form>
     </div>
-@endsection
+</x-layout>

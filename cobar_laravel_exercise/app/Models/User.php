@@ -11,6 +11,8 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
+    protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -43,41 +45,5 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
         ];
-    }
-
-    public static function getData($id)
-    {
-        $users = [
-            1 => [
-                'name'  => 'John Doe',
-                'email' => 'johndoe@mail.com',
-            ],
-            2 => [
-                'name'  => 'Juan Delacruz',
-                'email' => 'juandelacruz@mail.com',
-            ],
-            3 => [
-                'name'  => 'Maui Taylor',
-                'email' => 'mauitaylor@mail.com',
-            ],
-            4 => [
-                'name'  => 'Joyce Jimenez',
-                'email' => 'joycejimenez@mail.com',
-            ],
-            5 => [
-                'name'  => 'Johnny Sins',
-                'email' => 'johnnysins@mail.com',
-            ],
-            6 => [
-                'name'  => 'Jibo Cobar',
-                'email' => 'jibo.cobar16@gmail.com',
-            ],
-        ];
-
-        if ($id) {
-            return $users[$id] ?? null;
-        }
-
-        return $users;
     }
 }

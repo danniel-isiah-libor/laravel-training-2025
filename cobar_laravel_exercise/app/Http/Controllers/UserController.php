@@ -15,9 +15,26 @@ class UserController extends Controller
 
     public function show(Request $request, $id = null)
     {
-        $user = User::getData($id);
 
-        return view('users.profile', compact('user', 'id'));
+        if ($id) {
+            $user = User::find($id);
+            // dd($user);
+            return view('users.profile', [
+                'user'  => $user,
+                'id'    => $id,
+                'users' => [],
+            ]);
+        } else {
+            $users = User::all();
+            // dd($users);
+            return view('users.profile', [
+                'user'  => null,
+                'id'    => null,
+                'users' => $users,
+            ]);
+        }
+
+        // return view('users.profile', compact('user', 'id'));
     }
 
     public function store(SignupRequest $request)
