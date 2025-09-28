@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SignInRequest extends FormRequest
+class StorePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,22 +23,31 @@ class SignInRequest extends FormRequest
     {
         return [
             //
-            'email' => [
+            'title'=>[
                 'required',
                 'string',
-                'email'
+                'max:255'
             ],
-            'password' => [
+            'body'=>[
                 'required',
-                'string'
-            ]
+                'string',
+                'max:3000'
+            ],
+            'user_id' =>[
+                'required',
+                'exists:users,id'            ]
         ];
     }
 
-    // public function messages()
-    // {
-    //     return[
-    //         'email.exi'
-    //     ]
-    // }
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'user_id' => 2
+        ]);
+    }
+
+    public function messages()
+    {
+        return[ 'post.title'=>'Title is required'];
+    }
 }

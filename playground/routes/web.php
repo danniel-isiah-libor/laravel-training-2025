@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\{InterestController, UserController};
+use App\Http\Controllers\{InterestController, PostController, UserController};
 
 Route::get('/', function () {
     // return view('welcome');
@@ -30,11 +30,16 @@ Route::redirect('go-to-users', '/admin/users/users');
 
     // parameter route
 Route::get('/user/{id}', [UserController::class, 'show']);
-    Route::get('/username/{name?}', function(string $name = "Dora"){
-        return 'User Name: '. $name;
+Route::get('/username/{name?}', function(string $name = "Dora"){
+    return 'User Name: '. $name;
 });
 
 Route::get('/request', function(Request $request ){
     dd($request);
 });
 
+Route::resource('/posts', PostController::class); // ->except('destroy');
+// Route::prefix('/post')->name('post.')->group(function(){
+//     Route::get('/', [PostController::class, 'index'])->name('index');
+//     Route::get('/{id}', [PostController::class, 'show'])->name('show');
+// });

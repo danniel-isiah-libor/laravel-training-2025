@@ -20,6 +20,9 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+        <x-layout.navbar/>
+    </nav>
     <h1>{{ $title }}</h1>
     <p style="{{ $style }}">
         {{ $slot }}

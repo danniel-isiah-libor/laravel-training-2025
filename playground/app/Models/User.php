@@ -11,7 +11,6 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -46,6 +45,8 @@ class User extends Authenticatable
         ];
     }
 
+       protected $withCount = ['posts'];
+
     // convert to object to use arrows
     public static function getData($id){
         $data = (object)[
@@ -61,4 +62,10 @@ class User extends Authenticatable
 
         return $data->$id;
     }
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    
 }
