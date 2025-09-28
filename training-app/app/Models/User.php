@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Models\Post;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -23,6 +23,9 @@ class User extends Authenticatable
         'password',
         'password_confirmation'
     ];
+    // to count the number of posts for each user
+    // whats inside the array should be the relationship method name
+    protected $withCount = ['posts'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -45,6 +48,12 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function posts(){
+
+        return $this->hasMany(Post::class);
+
     }
     public static function FetchData($id){
             $data = (object) [

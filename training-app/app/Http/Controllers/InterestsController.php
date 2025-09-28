@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Interests;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreInterestsRequest;
+use Illuminate\Support\Facades\DB;
 class InterestsController extends Controller
 {
         public function show(){
