@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ Route::get('/', function () {
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/users') -> group (function () {
-        Route::get('/profile/{id}', [UserController::class, 'show'])->name('userProfile');
+        Route::get('/profile/{user}', [UserController::class, 'show'])->name('userProfile');
     });
 
     Route::get('/information', function () {
@@ -56,7 +57,16 @@ Route::post('/sign-in', [UserController::class, 'login'])->name('user.login');
 Route::get('/interest', [InterestController::class, 'index'])->name('interest.index');
 Route::post('/interest', [InterestController::class, 'store'])->name('interests.store');
 
+// Route::get('/post', [PostController::class, 'index'])->name('post.index');
+// Route::post('/post', [PostController::class, 'create'])->name('post.create');
 
+// Route::prefix('/blog') -> group (function () {
+//         Route::get('/post', [PostController::class, 'index'])->name('post.index');
+//         Route::post('/post', [PostController::class, 'create'])->name('post.create');
+//     });
 
+Route::resource('/posts', PostController::class); // ->except(['destroy']);
 
-
+Route::prefix('/posts')->name('posts.')->group(function () {
+    Route::get('/listing', [PostController::class, 'listing'])->name('listing');
+});
