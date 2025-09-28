@@ -24,11 +24,6 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => [
-                'required',
-                'integer',
-                // 'exists:users,id'
-            ],
             'name' => [
                 'required',
                 'string',
@@ -46,10 +41,7 @@ class RegisterRequest extends FormRequest
                 'string',
                 'confirmed',
                 'max:255',
-                Password::min(8)->max(12)->symbols()->mixedCase()->numbers()->letters()->uncompromised(),
-            ],
-            'status' => [
-                new StatusRule(),
+                // Password::min(8)->max(12)->symbols()->mixedCase()->numbers()->letters()->uncompromised(),
             ]
         ];
     }
@@ -59,13 +51,5 @@ class RegisterRequest extends FormRequest
         return [
             'email.email' => 'This email is invalid format.',
         ];
-    }
-
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'user_id' => 1,
-            'status' => 'inactive'
-        ]);
     }
 }

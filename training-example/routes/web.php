@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,6 @@ Route::post('/login', [LoginController::class, 'store'])->name('login');
 
 Route::get('/interest', [InterestController::class, 'index']);
 Route::post('/interest', [InterestController::class, 'store'])->name('interest');
+Route::get('/interest/{id}', [InterestController::class, 'show'])->name('interest.show');
+
+Route::resource('/post', PostController::class);

@@ -14,7 +14,7 @@ class UserController extends Controller
     }
 
     public function store (RegisterRequest $request){
-        $request->validated();
-        dd($request->all());
+        User::create($request->validated());
+        return redirect()->route('login');
     }
 }
