@@ -21,4 +21,8 @@ named - e.g. add_new_column_to_posts_table
 App\Models\Post::factory()->make() -//it will generate but will not save to database 
 App\Models\Post::factory()->create() -//it will generate and save to database
 App\Models\Post::factory()->count(10)->create() -//count() will generate and insert 10 fake records
-
+* php artisan db:seed -//implement the code inside the run() in the DatabaseSeeder
+* may create new seeder for the model - php artisan make:seeder
+* creating seeders for all models is not necessary, it's case to case basis
+* php artisan db:seed --class=PostSeeder -//run specific seeder
+* 
