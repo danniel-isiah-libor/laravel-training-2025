@@ -28,4 +28,5 @@ App\Models\Post::factory()->count(10)->create() -//count() will generate and ins
 * don't leave empty method
 * php artisan telescope:inst - publish
 * as practice, always create request class - php artisan make:request - StorePostRequest
+* avoid hidden - it can be still be viewed in view source
 * 
