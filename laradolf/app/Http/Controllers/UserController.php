@@ -44,9 +44,9 @@ class UserController extends Controller
         }
 
         // Ensure user_group_id is 2
-        if ($request->user_group_id != 2) {
-            return back()->withErrors(['user_group_id' => 'You are not authorized to sign up'])->withInput();
-        }
+        // if ($request->user_group_id != 2) {
+        //     return back()->withErrors(['user_group_id' => 'You are not authorized to sign up'])->withInput();
+        // }
 
         // Hash the password before saving
         $validatedForm['password'] = Hash::make($validatedForm['password']);
