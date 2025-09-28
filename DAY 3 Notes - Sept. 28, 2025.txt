@@ -33,4 +33,5 @@ App\Models\Post::factory()->count(10)->create() -//count() will generate and ins
 avoid <a href="{{ route('posts.destroy', $post)
 * password_hash('admin123', PASSWORD_ARGON2I);
 * Hash::make('admin123')
-* 
+* login options 1 & 2 long login code (refer to the sample project), 3rd option is to make login rule 
+  php artisan make:rule - LoginRule
