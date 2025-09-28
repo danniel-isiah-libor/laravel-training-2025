@@ -31,7 +31,15 @@
                 </div>
             </div>
             <div class="flex flex-1 text-neutral-900">
-                <div class="bg-white p-2 static w-[350px]">
+                <div class="bg-white p-6 static w-[350px]">
+                    <div class="flex flex-col gap-2">
+                        <div class="flex gap-2">
+                            <a href="{{ route('feed') }}">Blogs</a>
+                        </div>
+                        <div class="flex gap-2">
+                            <a href="{{ route('post.create') }}">Create</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex-1 p-5">
                     @yield('content')

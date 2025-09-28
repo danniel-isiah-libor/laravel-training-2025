@@ -26,11 +26,13 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ];
+
+        $user = User::whereEmail($credentials['email'])->first();
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->route('firsttimelogin');
+            Auth::login($user);
         }
-        return redirect()->route('signin');
+        return redirect()->route('firsttimelogin');
+        // return redirect()->back()->withErrors(['email' => 'Invalid credentials.'])->withInput();
     }
     public function logout(Request $request)
     {

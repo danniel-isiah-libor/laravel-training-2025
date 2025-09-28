@@ -19,8 +19,15 @@ Route::prefix('user')->group(function () {
     Route::post('save-interests', [InterestController::class, 'saveInterests'])->name('save.interests');
 });
 
+
 Route::get('/feed', [PostController::class, 'viewFeed'])->name('feed');
-Route::prefix('post')->group(function () {});
+Route::prefix('post')->group(function () {
+    Route::get('/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/store', [PostController::class, 'store'])->name('post.store');
+    Route::get('/edit/{post}', [PostController::class, 'edit'])->name('post.edit');
+    Route::put('/update/{post}', [PostController::class, 'update'])->name('post.update');
+    Route::delete('/delete/{post}', [PostController::class, 'destroy'])->name('post.delete');
+});
 
 Route::view('/signup', 'user.signup')->name('signup');
 Route::view('/login', 'user.login')->name('signin');

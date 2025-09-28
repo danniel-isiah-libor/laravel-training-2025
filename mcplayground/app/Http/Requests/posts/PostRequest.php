@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,18 +22,35 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => [
+            'title' => [
                 'required',
-                'email',
-                'exists:users,email'
+                'string',
+                'max:255',
             ],
-            'password' => 'required',
+            'body' => [
+                'required',
+                'string',
+                'max:5000',
+            ],
+            'user_id' => [
+                'required',
+                'exists:users,id',
+            ]
         ];
     }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'user_id' => 1,
+        ]);
+    }
+
+    // custom messages
     public function messages()
     {
         return [
-            'email.exists' => 'Invalid credentials.',
+            'title.required' => 'Empty title is not allowed',
         ];
     }
 }
