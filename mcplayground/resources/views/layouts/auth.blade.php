@@ -39,6 +39,9 @@
                         <div class="flex gap-2">
                             <a href="{{ route('post.create') }}">Create</a>
                         </div>
+                        <div class="flex gap-2">
+                            <a href="{{ route('logout') }}">Logout</a>
+                        </div>
                     </div>
                 </div>
                 <div class="flex-1 p-5">
