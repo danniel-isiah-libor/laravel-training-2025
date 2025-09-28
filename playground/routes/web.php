@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Route::prefix('/admin')->name('admin.')->group(function () {
     Route::prefix('/users')->group(function () {
-        Route::get('/profile/{id}', [UserController::class, 'show'])->name('profile');
+        Route::get('/profile/{user}', [UserController::class, 'show'])->name('profile');
 
         Route::get('/information', UserController::class)->name('information');
     });
