@@ -8,9 +8,9 @@
     <title>HOMEPAGE</title>
 </head>
 
-<body class="h-screen flex flex-col">
+<body class="h-dvh flex flex-col">
     <x-header />
-    <main class="basis-[80%] bg-black text-gray-200">
+    <main class="basis-[90%] bg-gray-950 text-gray-200">
         {{ $slot }}
     </main>
     <x-footer />

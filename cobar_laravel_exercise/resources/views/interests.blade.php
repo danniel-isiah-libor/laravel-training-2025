@@ -19,7 +19,7 @@
 
             <div class="basis-[20%]">
                 <button
-                    class="w-full border border-black/30 rounded-sm p-2 bg-blue-700 text-white transition-all duration-200 hover:cursor-pointer hover:bg-blue-700/90 hover:scale-95 uppercase"
+                    class="w-full border border-black/30 rounded-sm p-2 bg-blue-700 text-gray-200 transition-all duration-200 hover:cursor-pointer hover:bg-blue-700/90 hover:scale-95 uppercase"
                     type="submit">Submit</button>
             </div>
 
