@@ -35,4 +35,3 @@ Route::prefix('/admin')->name('admin.')->group(function () {
     Route::get('/posts/{id}', [UserController::class, 'showPost'])->name('admin.posts.show');
     Route::get('/posts/all', [UserController::class, 'showAllPosts'])->name('admin.posts.all');
 });
-

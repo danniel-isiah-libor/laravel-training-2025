@@ -16,6 +16,14 @@
                         <a href="{{ route('admin.users.profile', ['id' => 'all']) }}" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600">Users</a>
                     </div>
                 </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <a href="{{ route('admin.posts.index') }}" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600">Posts</a>
+                    </div>
+                </li>
             </ol>
         </nav>
 

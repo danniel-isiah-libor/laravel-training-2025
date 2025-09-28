@@ -16,6 +16,15 @@
                         <a href="{{ route('admin.users.profile', ['id' => 'all']) }}" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600">Users</a>
                     </div>
                 </li>
+
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <a href="{{ route('admin.posts.index') }}" class="ml-1 text-sm font-medium text-gray-700 hover:text-blue-600">Posts</a>
+                    </div>
+                </li>
             </ol>
         </nav>
 
@@ -50,7 +59,10 @@
                                 <a href="{{ url('/admin/posts/' . $user->id) }}" class="text-blue-500 hover:underline block">
                                     View Posts
                                 </a>
-
+                                <!-- View Profile Link -->
+                                <a href="{{ url('/admin/users/profile/' . $user->id) }}" class="text-blue-500 hover:underline block">
+                                    View Profile
+                                </a>
                                 <!-- Delete Form -->
                                 @if(session('user')->id !== $user->id || $user->user_group_id !== 1)
                                     <form method="POST" action="{{ route('admin.users.delete', $user->id) }}" onsubmit="return confirm('Are you sure you want to delete this user: {{ $user->name }}?');">
