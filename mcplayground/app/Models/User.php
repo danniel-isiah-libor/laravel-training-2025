@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $withCount = ['posts'];
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -76,5 +78,10 @@ class User extends Authenticatable
             array_push($objectData, (object)$data[1]);
         }
         return (object)$data[1];
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
