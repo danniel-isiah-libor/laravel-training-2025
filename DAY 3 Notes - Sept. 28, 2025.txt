@@ -17,5 +17,8 @@ $table->text('content'); if no ->nullable; the field is required
 named - e.g. add_new_column_to_posts_table
 * e.g. $table->boolean('is_published')->default(false)->after('content'); //->after('content') -if you want to place the another column between other column, if no ->after() the new column will be placed at the end of the last column
 * php artisan tinker //to generate or check e.g. fake()->firstName() -//it will generate fake/random name, e.g. fake()->lastName() -//it will generate fake/random last name, e.g. fake->randomNumber(2) -//generate two digit random number, e.g. fake->address() -//will generate random fake address, e.g. email() -//fake email -can generate true email so you may use safeEmail() -//will generate @example with .net, .org, .com, e.g. country() -//generate random country, etc.
-* 
+* php artisan tinker
+App\Models\Post::factory()->make() -//it will generate but will not save to database 
+App\Models\Post::factory()->create() -//it will generate and save to database
+App\Models\Post::factory()->count(10)->create() -//count() will generate and insert 10 fake records
 
