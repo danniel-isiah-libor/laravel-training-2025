@@ -16,4 +16,13 @@
     <p class="mt-4 text-center text-gray-700">
         Not yet registered? <a href="{{ route('admin.signup') }}" class="text-blue-500 hover:underline">Sign up here</a>.
     </p>
+    @if ($errors->any())
+        <div class="bg-red-100 text-red-700 p-4 rounded mb-4">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endcomponent

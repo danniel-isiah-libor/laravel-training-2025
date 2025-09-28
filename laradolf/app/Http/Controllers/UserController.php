@@ -14,20 +14,18 @@ class UserController extends Controller
         return 'User Information';
     }
 
-
+    //public function show(Request $request, User $user){ shortcut for route model binding
     public function show(Request $request, $id = null){
-        // If $id is 'all' or not numeric, show all users in a view
-        if ($id === null || $id === 'all' || !is_numeric($id)) {
-            $users = User::getData(null);
+        if ($id === 'all') {
+            $users = User::paginate(10); // Paginate users with 10 per page
             return view('users.all', ['users' => $users]);
         }
 
-        $user = User::getData($id);
+        $user = User::find($id);
         if (!$user) {
-            return view('users.all', ['users' => []]);
+            return response()->json(['message' => 'User not found'], 404);
         }
-        $userObj = (object) $user;
-        return view('profile', ['user' => $userObj]);
+        return view('users.profile', ['user' => $user]);
     }
 
     public function showProfile(Request $request, $id = null)
@@ -36,22 +34,29 @@ class UserController extends Controller
         return view('users.profile', ['user' => $user]);
     }
 
-    public function store(SignupRequest $request)
+    public function store(SignupRequest $request) //form submission 
     {
         $validatedForm = $request->validated();
 
-        // Hash the password before returning the response
+        // Check if passwords match
+        if ($request->password !== $request->password_confirmation) {
+            return back()->withErrors(['password' => 'Passwords do not match'])->withInput();
+        }
+
+        // Ensure user_group_id is 2
+        if ($request->user_group_id != 2) {
+            return back()->withErrors(['user_group_id' => 'You are not authorized to sign up'])->withInput();
+        }
+
+        // Hash the password before saving
         $validatedForm['password'] = Hash::make($validatedForm['password']);
 
-        // Remove password_confirmation from the response
-        unset($validatedForm['password_confirmation']);
-
-        // Debugging statement to trace execution
-        logger('Signup method executed with data: ', $validatedForm);
+        // Save the validated data into the database
+        $user = User::create($validatedForm);
 
         return response()->json([
             'message' => 'Signup successful',
-            'data' => $validatedForm
+            'data' => $user
         ]);
     }
 
@@ -62,13 +67,25 @@ class UserController extends Controller
             'password' => 'required|string',
         ]);
 
-        // Debugging statement to trace execution
-        logger('Login method executed with data: ', $validated);
+        $user = User::where('email', $validated['email'])->first();
 
-        return response()->json([
-            'message' => 'Login successful',
-            'data' => $validated
-        ]);
+        if (!$user || !Hash::check($validated['password'], $user->password)) {
+            return back()->withErrors(['email' => 'Invalid credentials'])->withInput();
+        }
+
+        session(['user' => $user]);
+
+        if ($user->user_group_id === 1) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return redirect()->route('admin.dashboard');
+    }
+
+    public function logout()
+    {
+        session()->forget('user');
+        return redirect()->route('admin.signin');
     }
 
     public function submitInterests(Request $request)
@@ -95,4 +112,41 @@ class UserController extends Controller
         ]);
     }
 
+    public function delete($id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return back()->withErrors(['message' => 'User not found']);
+        }
+
+        if (session('user')->id === $user->id && $user->user_group_id === 1) {
+            return back()->withErrors(['message' => 'You cannot delete yourself as an admin']);
+        }
+
+        $user->delete();
+
+        return redirect()->route('admin.users.profile', ['id' => 'all'])->with('success', 'User deleted successfully');
+    }
+
+    public function showPosts(Request $request)
+    {
+        $posts = \App\Models\Post::paginate(10); // Fetch posts with pagination
+        return view('posts.index', ['posts' => $posts]);
+    }
+
+    public function showPost(Request $request, $id)
+    {
+        $post = \App\Models\Post::find($id); // Fetch the post by ID
+        if (!$post) {
+            return response()->json(['message' => 'Post not found'], 404);
+        }
+        return view('posts.show', ['post' => $post]);
+    }
+
+    public function showAllPosts(Request $request)
+    {
+        $posts = \App\Models\Post::paginate(10); // Fetch posts with pagination
+        return view('posts.all', ['posts' => $posts]);
+    }
 }

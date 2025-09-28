@@ -23,9 +23,16 @@ Route::prefix('/admin')->name('admin.')->group(function () {
 
     Route::prefix('/users')->name('users.')->group(function () {
         Route::get('/profile/{id?}', [UserController::class, 'show'])->name('profile');
-        Route::get('/users/information', fn() => 'User Information')->name('information');
+        // Route::get('/users/information', fn() => 'User Information')->name('information');
+        Route::delete('/{id}', [UserController::class, 'delete'])->name('delete');
     });
-    Route::get('/dashboard', fn() => 'Admin Dashboard')->name('dashboard');
+    Route::get('/profile/all', fn() => redirect()->route('admin.dashboard'));
+    Route::get('/profile', fn() => redirect()->route('admin.dashboard'));
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
     Route::get('/go-to-admin', fn() => redirect()->route('admin.dashboard'))->name('go-to-admin');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('/posts', [UserController::class, 'showPosts'])->name('posts.index');
+    Route::get('/posts/{id}', [UserController::class, 'showPost'])->name('admin.posts.show');
+    Route::get('/posts/all', [UserController::class, 'showAllPosts'])->name('admin.posts.all');
 });
 
