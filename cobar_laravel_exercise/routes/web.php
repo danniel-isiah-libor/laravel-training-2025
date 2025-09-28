@@ -3,11 +3,10 @@
 use App\Http\Controllers\InterestController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('homepage');
+Route::view('/', 'homepage')->name('homepage');
 
 Route::prefix('/admin')
     ->name('admin.')
@@ -15,8 +14,11 @@ Route::prefix('/admin')
         Route::prefix('/users')
             ->name('users.')
             ->group(function () {
-                Route::get('/profile/{id?}', [UserController::class, 'show'])
+                Route::get('/profile', [UserController::class, 'show'])
                     ->name('profile');
+
+                Route::get('/profile/{id}/view', [UserController::class, 'show'])
+                    ->name('view-profile');
 
                 Route::get('information', UserController::class)
                     ->name('information');
@@ -49,3 +51,8 @@ Route::post('/log-in', [UserController::class, 'login'])->name('user.login');
 
 Route::get('/interests', [InterestController::class, 'index'])->name('interests.index');
 Route::post('/interests', [InterestController::class, 'store'])->name('interests.store');
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect()->route('signin');
+})->name('logout');

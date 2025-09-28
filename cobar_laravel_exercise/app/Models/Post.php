@@ -20,4 +20,16 @@ class Post extends Model
     database connection is located to other servers, declare a primary key
     protected $primaryKey = 'post_id';
     */
+
+    protected $with = ['user'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

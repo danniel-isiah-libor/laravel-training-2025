@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SignupRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,30 +20,35 @@ class UserController extends Controller
 
         if ($id) {
             $user = User::find($id);
-            // dd($user);
-            return view('users.profile', [
-                'user'  => $user,
-                'id'    => $id,
-                'users' => [],
+
+            if (! $user) {
+                abort(404, 'User not found.');
+            }
+
+            return view('users.view-profile', [
+                'user' => $user,
+                'id'   => $id,
             ]);
+
         } else {
             $users = User::all();
-            // dd($users);
+
             return view('users.profile', [
-                'user'  => null,
-                'id'    => null,
                 'users' => $users,
             ]);
         }
 
-        // return view('users.profile', compact('user', 'id'));
     }
 
     public function store(SignupRequest $request)
     {
         $validatedForm = $request->validated();
 
-        dd($validatedForm);
+        // dd($validatedForm);
+
+        User::create($validatedForm);
+
+        return redirect()->route('login');
     }
 
     public function login(Request $request)
@@ -51,12 +58,27 @@ class UserController extends Controller
                 'required',
                 'string',
                 'email',
+                'exists:users,email',
             ],
             'password' => [
                 'required',
                 'string',
             ],
+        ], [
+            'email.exists' => 'The email does not exist in our records.',
         ]);
+
+        $email    = $validatedForm['email'];
+        $password = $validatedForm['password'];
+
+        $user = User::where('email', $email)->first();
+
+        if (Hash::check($password, $user->password)) {
+            Auth::check($user);
+            return redirect()->intended('admin/users/profile');
+        } else {
+            return back()->withErrors(['email' => 'Invalid Credentials'])->withInput();
+        }
 
         dd($validatedForm);
     }
