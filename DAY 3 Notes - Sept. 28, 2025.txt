@@ -31,3 +31,6 @@ App\Models\Post::factory()->count(10)->create() -//count() will generate and ins
 * avoid hidden - it can be still be viewed in view source
 * beware of delete post security hole
 avoid <a href="{{ route('posts.destroy', $post)
+* password_hash('admin123', PASSWORD_ARGON2I);
+* Hash::make('admin123')
+* 
