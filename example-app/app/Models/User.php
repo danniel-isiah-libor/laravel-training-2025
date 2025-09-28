@@ -49,15 +49,15 @@ class User extends Authenticatable
     public static function getData($id)
     {
         $records =  (object)[
-            1 => [
+            1 => (object)[
                 'name' => 'John Doe',
                 'email' => 'johndoe@example.com'
             ],
-            2 => [
+            2 => (object)[
                 'name' => 'Jane Smith',
                 'email' => 'janesmith@example.com'
             ],
-            3 => [
+            3 => (object)[
                 'name'=> 'Dylan Murray',
                 'email' => 'dylan@gmail.com'
             ]

@@ -7,13 +7,28 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    // public function index(){
+
+    //     $user = User::getData();
+
+
+    //     return view('user.profile', ['users' => $user]);
+    // }
+
     public function show(Request $request, $id){
         $user = User::getData($id);
 
-        dd($user['name']);
-
-
-        return "<ul><li>{$user->name}</li></ul>";
+        return view('users.profile', ['user' => $user]);
 
     }
+
+    public function edit(){
+
+    }
+
+    public function update(Request $request, $id){}
+
+
+    public function destroy(Request $request, $id){}
 }
