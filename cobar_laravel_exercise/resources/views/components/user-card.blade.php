@@ -10,7 +10,5 @@
             <p class="text-sm text-gray-500">{{ $user->email }}</p>
         </div>
     </div>
-    <button class="mt-4 w-full bg-gray-700 text-gray-200 py-2 px-4 rounded hover:bg-gray-700/60 transition duration-200">
-        View Profile
-    </button>
+    <x-forms.button :label="'View Profile'" :type="'button'" />
 </div>
