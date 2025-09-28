@@ -57,7 +57,7 @@ class RegisterController extends Controller
 
         $user = User::create($validatedForm);
         Auth::login($user);
-        return to_route('dashboard');
+        return to_route('post.index');
     }
 
     public function login(LoginRequest $request){

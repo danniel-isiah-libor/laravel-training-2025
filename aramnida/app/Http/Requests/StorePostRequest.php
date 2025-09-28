@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class StorePostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,19 +22,22 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'email'=> [
-                    'required',
-                ],
-                'password'=> [
-                    'required',
-                ],
+            'user_id' => [
+                'required',
+                'exists:users,id'
+            ],
+            'title' => [
+                'required',
+                'string',
+            ],
+            'body' => [
+                'required',
+                'string',
+            ]
         ];
     }
 
-    public function messages(){
-        return [
-            'email.email'=> 'Did not match!'
-        ] ;
+    public function prepareForValidation(){
+        $this->merge(['user_id' => '2']);
     }
-
 }

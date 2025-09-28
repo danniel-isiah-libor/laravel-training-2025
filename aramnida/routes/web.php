@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -8,6 +9,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
         // return '<h1>Hello Ice!</h1>';
+});
+
+Route::get('/create', function () {
+    return view('create');
 });
 
 Route::get('/signup', function () {
@@ -27,6 +32,10 @@ Route::post('/interests', [RegisterController::class, 'check_interest'])->name('
 Route::post('/signup', [RegisterController::class, 'store'])->name('register.store');
 
 Route::post('/signin', [RegisterController::class, 'login'])->name('register.login');
+
+
+
+Route::resource('/post', PostController::class);
 
 // Route::prefix('/admin')->group(function (){
 //     Route::prefix('/users')->group(function (){

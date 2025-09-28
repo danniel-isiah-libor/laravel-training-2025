@@ -47,35 +47,58 @@ class User extends Authenticatable
     }
 
 
-    public static function getData($id)
+    // public static function getData($id)
+    // {
+    //     $records = (object)[
+    //             1 => (object)[
+    //                 'name' => 'John Doe',
+    //                 'email' => 'john@example.com'
+    //             ],
+    //             2 => (object)[
+    //                 'name' => 'Jane Smith',
+    //                 'email' => 'jane@example.com'
+    //             ],            
+    //             3 => (object)[
+    //                 'name' => 'Bob johnson',
+    //                 'email' => 'bob@example.com'
+    //             ]
+    //         ];
+    //     return $records->$id;
+    // }
+
+    public static function getData()
     {
-        $records = (object)[
-                1 => (object)[
+        $records = [
+                1 => [
                     'name' => 'John Doe',
                     'email' => 'john@example.com'
                 ],
-                2 => (object)[
+                2 => [
                     'name' => 'Jane Smith',
                     'email' => 'jane@example.com'
                 ],            
-                3 => (object)[
+                3 => [
                     'name' => 'Bob johnson',
                     'email' => 'bob@example.com'
                 ]
             ];
-        return $records->$id;
+        return $records;
     }
 
+    public function posts(){
 
+        return $this->hasMany(Post::class);
 
-    public static function getInterest()
-    {
-        return [
-        'Laravel',
-        'Vue',
-        'React',
-        'Angular'
-        ];
     }
+
+    // public static function getInterest()
+    // {
+    //     return [
+    //     'Laravel',
+    //     'Vue',
+    //     'React',
+    //     'Angular'
+    //     ];
+    // }
 
 }

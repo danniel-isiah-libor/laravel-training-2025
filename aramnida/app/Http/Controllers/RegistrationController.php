@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //use App\Models\User; // Assuming you have a User model
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules\Password;
 
 class RegistrationController extends Controller
@@ -17,12 +18,21 @@ class RegistrationController extends Controller
     }
 
 
-    public function show(Request $request, $id = null) {
-
-        $user = User::getData($id);
+    //public function show(Request $request, $id = null) {
+    public function show(Request $request, User $user) {
+        //$user = User::getData($id);
         //dd($user);
-        return view('show', ['user'=> $user]);
+        //return view('show', ['user'=> $user]);
         //return $user;
+
+        //$user = DB::select("select * from users where id = $id");
+        //$user = User::select('*')->where('id', '=', $id)->first();
+        //$user = User::where('id', $id)->first();
+        $user = User::all();
+        //$user = User::find($id);
+        //return view('show', ['user'=> $user]);
+
+        //dd($user);
     }
 
 public function store(Request $request) 
@@ -54,7 +64,34 @@ public function store(Request $request)
 }
 
 public function login(Request $request){
-//
+$validatedForm = $request->validate([
+        'email'=> [
+            'required',
+            'string',
+            'email',
+            'exits:user,email',
+        ],
+        'password'=> [
+            'required',
+            'string',
+
+        ], 
+        [
+            'email.exits' => 'Invalid Credentials'
+        ],
+        ]);
+    $email = $validatedForm('email');
+    $password = $validatedForm('password');
+
+    $user = User::whereEmail($email)->first();
+
+    if(Hash::check($password, $user->password)){
+        Auth::login($user);
+    } else {
+        return back()->withErrors([
+            'email' => 'Invalid Credentials'
+        ])->withInput();
+    }
 }
 
 
