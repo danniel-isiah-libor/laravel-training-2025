@@ -17,6 +17,13 @@ class Post extends Model
 
     // protected $primaryKey = 'post_id';
 
+    protected $fillable = [
+        'user_id',
+        'title',
+        'body',
+        'is_published'
+    ];
+
     protected $with = ['user'];
 
     public function user()

@@ -71,7 +71,35 @@ class PostController extends Controller
     {
         $validatedForm = $request->validated();
 
-        dd($validatedForm);
+        // option 1
+        Post::create($validatedForm);
+
+        return redirect()->route('posts.index');
+
+        // option 2
+        // $post = new Post();
+        // $post->user_id = $validatedForm['user_id'];
+        // $post->title = $validatedForm['title'];
+        // $post->body = $validatedForm['body'];
+        // $post->save();
+
+        // option 3
+        // Post::insert([
+        //     [
+        //         'title' => $validatedForm['title'],
+        //         'body' => $validatedForm['body'],
+        //         'user_id' => $validatedForm['user_id'],
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ],
+        //     [
+        //         'title' => 'Second Post',
+        //         'body' => 'This is the body of the second post.',
+        //         'user_id' => $validatedForm['user_id'],
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ],
+        // ]);
     }
 
     /**
@@ -87,7 +115,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
