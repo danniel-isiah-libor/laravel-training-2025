@@ -25,4 +25,5 @@ App\Models\Post::factory()->count(10)->create() -//count() will generate and ins
 * may create new seeder for the model - php artisan make:seeder
 * creating seeders for all models is not necessary, it's case to case basis
 * php artisan db:seed --class=PostSeeder -//run specific seeder
+* don't leave empty method
 * 
