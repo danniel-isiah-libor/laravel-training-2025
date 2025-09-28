@@ -1,2 +1,7 @@
 DAY 3 Notes
 Sept. 28, 2025
+
+* php artisan migrate - command for database migrations
+* php artisan config:clear -clear/refresh config cache
+* php artisan optimize - to clear/refresh all
+* 
