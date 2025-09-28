@@ -4,4 +4,9 @@ Sept. 28, 2025
 * php artisan migrate - command for database migrations
 * php artisan config:clear -clear/refresh config cache
 * php artisan optimize - to clear/refresh all
+* $table->timestamps(); - automatic created columns create_at, updated_at and automatic laravel updating those timestamps
+* when naming tables, practice naming plural e.g. create_posts_table
+* php artisan make:migration - create table
+* do not migrate the database early, if columns are not yet finished setting up
+* if accidentally made migration, just do migrate:rollback
 * 
