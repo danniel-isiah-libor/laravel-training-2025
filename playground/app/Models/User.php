@@ -33,6 +33,8 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $withCount = ['posts'];
+
     /**
      * Get the attributes that should be cast.
      *
@@ -64,5 +66,13 @@ class User extends Authenticatable
         ];
 
         return $records->$id;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+        // $this->hasOne();
+        // $this->hasOneThrough();
+        // $this->hasManyThrough();
     }
 }

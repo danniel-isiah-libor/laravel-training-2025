@@ -16,4 +16,12 @@ class Post extends Model
     // public $incrementing = false;
 
     // protected $primaryKey = 'post_id';
+
+    protected $with = ['user'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+        // $this->belongsToMany();
+    }
 }

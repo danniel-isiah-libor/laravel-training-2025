@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InterestController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +55,11 @@ Route::post('/sign-in', [UserController::class, 'login'])->name('user.login');
 
 Route::get('/interests', [InterestController::class, 'index'])->name('interests.index');
 Route::post('/interests', [InterestController::class, 'store'])->name('interests.store');
+
+// Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+Route::resource('/posts', PostController::class); // ->except(['destroy']);
+
+Route::prefix('/posts')->name('posts.')->group(function () {
+    Route::get('/listing', [PostController::class, 'listing'])->name('listing');
+});
