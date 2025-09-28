@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InterestController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -34,3 +35,6 @@ Route::post('/register', [UserController::class, 'store'])->name('register');
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store'])->name('login');
+
+Route::get('/interest', [InterestController::class, 'index']);
+Route::post('/interest', [InterestController::class, 'store'])->name('interest');
