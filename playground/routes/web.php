@@ -4,6 +4,7 @@ use App\Http\Controllers\InterestController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -63,3 +64,8 @@ Route::resource('/posts', PostController::class); // ->except(['destroy']);
 Route::prefix('/posts')->name('posts.')->group(function () {
     Route::get('/listing', [PostController::class, 'listing'])->name('listing');
 });
+
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->route('signin');
+})->name('logout');

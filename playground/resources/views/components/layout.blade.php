@@ -24,6 +24,10 @@
 <body class="h-full">
     <h1>Header</h1>
 
+    @auth
+        <a href="{{ route('logout') }}">Logout</a>
+    @endauth
+
     {{ $alert }}
 
     {{ $slot }}

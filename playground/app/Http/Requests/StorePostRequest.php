@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StorePostRequest extends FormRequest
 {
@@ -11,6 +12,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        // return Auth::user()->role === 'admin';
         return true;
     }
 
@@ -42,7 +44,7 @@ class StorePostRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
         ]);
     }
 }

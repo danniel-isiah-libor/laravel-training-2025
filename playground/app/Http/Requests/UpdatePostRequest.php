@@ -42,7 +42,7 @@ class UpdatePostRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'user_id' => 1,
+            'user_id' => auth()->user()->id,
         ]);
     }
 }
