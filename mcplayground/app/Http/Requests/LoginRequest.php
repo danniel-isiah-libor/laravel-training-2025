@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\LoginRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
@@ -28,6 +29,7 @@ class LoginRequest extends FormRequest
                 'exists:users,email'
             ],
             'password' => 'required',
+            new LoginRule(),
         ];
     }
     public function messages()

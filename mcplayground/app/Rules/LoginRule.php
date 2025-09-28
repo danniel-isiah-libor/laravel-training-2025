@@ -14,6 +14,9 @@ class LoginRule implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        //
+        // $form = [
+        //     'email'=> $value,
+        //     'password'=> request()->
+        // ];
     }
 }
