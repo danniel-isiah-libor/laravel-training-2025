@@ -5,7 +5,7 @@
     'data' => null,
 ])
 
-<form action="{{ $action }}" method="{{ $method }}">
+<form action="{{ $action }}" method="POST">
     @csrf
     @method($method)
 
