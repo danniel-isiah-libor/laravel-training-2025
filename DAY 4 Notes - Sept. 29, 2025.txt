@@ -43,3 +43,5 @@ Sept. 29, 2025.txt
 * php artisan vendor:publish -expose hidden vendor files
 * php artisan tinker - for checking or faking a content/record in the db
   e.g. php artisan tinker - App\Models\Comment
+* every change in config make a clear cache or optimize to take effect
+* 
