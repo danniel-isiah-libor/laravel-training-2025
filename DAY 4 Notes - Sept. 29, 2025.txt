@@ -25,4 +25,12 @@ Sept. 29, 2025.txt
   e.g. title
   yes
   yes
+* update/edit user_id to make it the name
+*  //option 1
+                // TextInput::make('user_id')
+                //     ->hidden() //not recommended! it will be viewable in the source code
+                //     ->default(auth()->id())
+                //     ->required()
+                //     ->numeric(),
+* add feature comments from filament plugins
 * 
