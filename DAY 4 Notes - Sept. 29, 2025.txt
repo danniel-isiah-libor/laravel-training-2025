@@ -10,4 +10,6 @@ Sept. 29, 2025.txt
   e.g. ->registration() //to add the user registration feature
   e.g. ->profile(isSimple: false) //to show the profile feature
   e.g. ->passwordReset() //to show the forgot password feature
+  e.g. ->multiFactorAuthentication([AppAuthentication::make(),]) //to show the 2FA feature
+
   
