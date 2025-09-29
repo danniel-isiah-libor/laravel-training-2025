@@ -1,3 +1,13 @@
 DAY 4 Notes
 Sept. 29, 2025.txt
 
+* using Filament platform in Laravel
+* install filament 
+  composer require filament/filament:"~4.0" //install filament
+  php artisan filament:install --panels //install portal e.g. /admin
+  php artisan make:filament-user //create user for the portal
+  In AdminPanelProvider.php - customize it according to your needs
+  e.g. ->registration() //to add the user registration feature
+  e.g. ->profile(isSimple: false) //to show the profile feature
+  e.g. ->passwordReset() //to show the forgot password feature
+  
