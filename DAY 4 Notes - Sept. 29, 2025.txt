@@ -12,5 +12,17 @@ Sept. 29, 2025.txt
   e.g. ->passwordReset() //to show the forgot password feature
   e.g. ->multiFactorAuthentication([AppAuthentication::make(),]) //to show the 2FA feature
   continue with the filament documentation for other features that you like to use
+* File upload feature: storage path can be change to other server
+* storage_path('app/private') - temp storage
+* If avatar -save to public
+* ->disk('public')
+  ->visibility('public')
+
+* php artisan make:model //create model first e.g. Post
+  php artisan make:model Post -f -s -m //same thing with the above code but automatically creating the 
+* php artisan make:filament-resource //define model for the blog-post project
+  App\Models\Post
+  e.g. title
+  yes
+  yes
 * 
-  
