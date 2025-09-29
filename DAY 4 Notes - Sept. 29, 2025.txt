@@ -11,5 +11,6 @@ Sept. 29, 2025.txt
   e.g. ->profile(isSimple: false) //to show the profile feature
   e.g. ->passwordReset() //to show the forgot password feature
   e.g. ->multiFactorAuthentication([AppAuthentication::make(),]) //to show the 2FA feature
-
+  continue with the filament documentation for other features that you like to use
+* 
   
