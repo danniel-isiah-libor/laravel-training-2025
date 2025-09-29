@@ -54,5 +54,5 @@ Route::post('/interests', [InterestController::class, 'store'])->name('interests
 
 Route::post('/logout', function () {
     Auth::logout();
-    return redirect()->route('signin');
+    return redirect()->route('login');
 })->name('logout');

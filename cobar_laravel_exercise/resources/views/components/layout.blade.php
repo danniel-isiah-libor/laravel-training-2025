@@ -10,9 +10,6 @@
 
 <body class="h-dvh flex flex-col">
     <x-header />
-    @auth
-        <x-forms.button :label="'Logout'" :type="'button'" :route="'logout'" />
-    @endauth
     <main class="basis-[90%] bg-gray-950 text-gray-200">
         {{ $slot }}
     </main>

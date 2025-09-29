@@ -44,8 +44,6 @@ class UserController extends Controller
     {
         $validatedForm = $request->validated();
 
-        // dd($validatedForm);
-
         User::create($validatedForm);
 
         return redirect()->route('login');
@@ -74,7 +72,7 @@ class UserController extends Controller
         $user = User::where('email', $email)->first();
 
         if (Hash::check($password, $user->password)) {
-            Auth::check($user);
+            Auth::login($user);
             return redirect()->intended('admin/users/profile');
         } else {
             return back()->withErrors(['email' => 'Invalid Credentials'])->withInput();
