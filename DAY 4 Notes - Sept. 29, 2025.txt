@@ -44,4 +44,5 @@ Sept. 29, 2025.txt
 * php artisan tinker - for checking or faking a content/record in the db
   e.g. php artisan tinker - App\Models\Comment
 * every change in config make a clear cache or optimize to take effect
-* 
+* you can make the notification clickable to go directly to the comment/content
+* also, add email notification to 
