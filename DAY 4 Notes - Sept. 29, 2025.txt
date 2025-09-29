@@ -33,4 +33,5 @@ Sept. 29, 2025.txt
                 //     ->required()
                 //     ->numeric(),
 * add feature comments from filament plugins
+  https://filamentphp.com/plugins/parallax-comments#installation
 * 
