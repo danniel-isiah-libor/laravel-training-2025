@@ -34,4 +34,11 @@ Sept. 29, 2025.txt
                 //     ->numeric(),
 * add feature comments from filament plugins
   https://filamentphp.com/plugins/parallax-comments#installation
+* add filament notification feature
+* add access control
+* add admin control
+* php artisan make:observer e.g. CommentObserver -create first model for the comments
+  php artisan make:model
+    comment
+* php artisan vendor:publish -expose hidden vendor files
 * 
